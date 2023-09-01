@@ -1,5 +1,20 @@
 import { useState } from "react";
 
+
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update seperately</h1>
+      <MyButton />
+      <MyButton />
+
+    </div>
+  );
+
+}
+
+
 function MyButton() {
 
   const [count, setCount] = useState(0);
@@ -12,5 +27,3 @@ function MyButton() {
     </button>
   );
 }
-
-export default MyButton;
