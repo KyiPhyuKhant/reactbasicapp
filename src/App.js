@@ -3,11 +3,17 @@ import { useState } from "react";
 
 
 export default function MyApp() {
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
       <h1>Counters that update seperately</h1>
-      <MyButton />
-      <MyButton />
+      <MyButton count={count}  onClick={handleClick}/>
+      <MyButton count={count}  onClick={handleClick}/>
+
 
     </div>
   );
@@ -15,14 +21,11 @@ export default function MyApp() {
 }
 
 
-function MyButton() {
+function MyButton({count, onClick}) {
 
-  const [count, setCount] = useState(0);
-  function handleClick() {
-    setCount(count + 1);
-  }
+
   return (
-    <button onClick={handleClick}>
+    <button onClick={onClick}>
       Click {count} times
     </button>
   );
